@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Money Wise</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0F0F14;
+      --surface:   #16161F;
+      --border:    rgba(255,255,255,0.07);
+      --indigo:    #748FFC;
+      --indigo2:   #4263EB;
+      --green:     #51CF66;
+      --text:      #E8E8F0;
+      --muted:     rgba(232,232,240,0.45);
+      --radius:    14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Background blobs */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      top: -200px; left: -200px;
+      background: radial-gradient(circle, rgba(116,143,252,0.10) 0%, transparent 70%);
+    }
+    body::after {
+      width: 500px; height: 500px;
+      bottom: -150px; right: -150px;
+      background: radial-gradient(circle, rgba(81,207,102,0.07) 0%, transparent 70%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--indigo), var(--indigo2));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(116,143,252,0.30);
+      flex-shrink: 0;
+    }
+    .logo svg { width: 28px; height: 28px; fill: white; }
+
+    .header-text h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .header-text p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Hero title */
+    .hero {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h2 {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .hero h2 span {
+      background: linear-gradient(90deg, var(--indigo), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .section:hover { border-color: rgba(116,143,252,0.20); }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .icon-badge {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .section h3 {
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      color: var(--text);
+    }
+
+    .section p, .section li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .section ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+    .section ul li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .section ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--indigo);
+      font-weight: 700;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: rgba(116,143,252,0.08);
+      border: 1px solid rgba(116,143,252,0.18);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(232,232,240,0.7);
+    }
+    .highlight strong { color: var(--indigo); }
+
+    /* Contact */
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--indigo);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+    .contact-link:hover { opacity: 0.75; }
+
+    /* Footer */
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p { font-size: 12px; color: var(--muted); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(81,207,102,0.10);
+      border: 1px solid rgba(81,207,102,0.20);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .badge::before { content: '●'; font-size: 8px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 18v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1h-9a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9zm-9-2h10V8H12v8zm4-2.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <h1>Money Wise</h1>
+      <p>Your personal finance companion</p>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h2>Privacy <span>Policy</span></h2>
+    <p>Last updated: January 1, 2025 &nbsp;·&nbsp; Effective immediately</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(116,143,252,0.12);">📋</div>
+      <h3>Overview</h3>
+    </div>
+    <p>Money Wise ("we", "our", or "us") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding your data when you use the Money Wise mobile application.</p>
+    <div class="highlight">
+      <strong>Short version:</strong> We collect only what's necessary to run the app. We never sell your data. You can delete your account and all data at any time.
+    </div>
+  </div>
+
+  <!-- Data collected -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(116,143,252,0.12);">🗂️</div>
+      <h3>Information We Collect</h3>
+    </div>
+    <p>We collect the following information when you use Money Wise:</p>
+    <ul>
+      <li><strong>Account information</strong> — your email address and username when you register</li>
+      <li><strong>Financial data</strong> — expense records, categories, amounts, and dates that you manually enter</li>
+      <li><strong>Receipt images</strong> — photos you choose to upload for AI-powered expense extraction</li>
+      <li><strong>Preferences</strong> — your selected currency, language, notification settings, and app theme</li>
+      <li><strong>Profile picture</strong> — if you choose to upload one (optional)</li>
+    </ul>
+  </div>
+
+  <!-- How we use it -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(81,207,102,0.12);">⚙️</div>
+      <h3>How We Use Your Information</h3>
+    </div>
+    <p>Your data is used solely to provide and improve the Money Wise service:</p>
+    <ul>
+      <li>Storing and displaying your expense records across devices</li>
+      <li>Generating spending statistics, insights, and reports</li>
+      <li>Processing receipt images through AI to extract expense items</li>
+      <li>Sending reminders and notifications you have enabled</li>
+      <li>Authenticating your account securely</li>
+    </ul>
+    <div class="highlight">
+      <strong>AI Receipt Analysis:</strong> Receipt images are sent to a secure processing server and immediately discarded after analysis. They are never stored permanently or used for training AI models.
+    </div>
+  </div>
+
+  <!-- Data storage -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(251,191,36,0.12);">🔐</div>
+      <h3>Data Storage & Security</h3>
+    </div>
+    <p>Your data is stored securely using Supabase, a trusted cloud infrastructure provider with industry-standard security practices:</p>
+    <ul>
+      <li>All data is encrypted in transit using TLS/HTTPS</li>
+      <li>Data is stored in secure, encrypted databases</li>
+      <li>Passwords are never stored — authentication uses secure token-based sessions</li>
+      <li>We do not store payment card numbers or sensitive financial credentials</li>
+    </ul>
+  </div>
+
+  <!-- Third parties -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(236,72,153,0.12);">🔗</div>
+      <h3>Third-Party Services</h3>
+    </div>
+    <p>Money Wise uses the following third-party services, each with their own privacy policies:</p>
+    <ul>
+      <li><strong>Supabase</strong> — database and authentication (supabase.com/privacy)</li>
+      <li><strong>Google Gemini AI</strong> — receipt image analysis only (ai.google.dev)</li>
+      <li><strong>Google Play Services</strong> — app distribution on Android</li>
+    </ul>
+    <p style="margin-top:12px;">We do not sell, rent, or share your personal data with any third party for marketing or advertising purposes.</p>
+  </div>
+
+  <!-- Your rights -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(116,143,252,0.12);">✅</div>
+      <h3>Your Rights</h3>
+    </div>
+    <p>You have full control over your data:</p>
+    <ul>
+      <li><strong>Access</strong> — view all data stored about you within the app</li>
+      <li><strong>Correction</strong> — edit or update any of your information at any time</li>
+      <li><strong>Deletion</strong> — delete individual expenses, or your entire account and all associated data</li>
+      <li><strong>Export</strong> — export your expense data in CSV format from within the app</li>
+      <li><strong>Portability</strong> — your data belongs to you and can be exported at any time</li>
+    </ul>
+  </div>
+
+  <!-- Data retention -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(251,191,36,0.12);">🗓️</div>
+      <h3>Data Retention</h3>
+    </div>
+    <p>We retain your data for as long as your account is active. If you delete your account, all associated data — including expenses, profile information, and preferences — is permanently deleted within 30 days. Receipt images processed by AI are never retained beyond the duration of a single analysis request.</p>
+  </div>
+
+  <!-- Children -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(236,72,153,0.12);">👶</div>
+      <h3>Children's Privacy</h3>
+    </div>
+    <p>Money Wise is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us and we will delete it immediately.</p>
+  </div>
+
+  <!-- Changes -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(116,143,252,0.12);">🔄</div>
+      <h3>Changes to This Policy</h3>
+    </div>
+    <p>We may update this privacy policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy. For significant changes, we will notify you within the app.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon-badge" style="background:rgba(81,207,102,0.12);">✉️</div>
+      <h3>Contact Us</h3>
+    </div>
+    <p>If you have any questions about this privacy policy or how we handle your data, please contact us:</p>
+    <a class="contact-link" href="mailto:xeroai.contact@gmail.com">
+      ✉ xeroai.contact@gmail.com
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Money Wise. All rights reserved.</p>
+    <div class="badge">GDPR Compliant</div>
+  </footer>
+
+</div>
+</body>
+</html>
